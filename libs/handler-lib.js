@@ -9,6 +9,7 @@ export default function handler(lambda) {
         }
         catch (e) {
             body = { error: e.message };
+            console.log(e);
             statusCode = 500;
         }
 

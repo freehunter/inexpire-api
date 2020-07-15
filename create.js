@@ -16,6 +16,8 @@ export const main = handler(async(event, context) => {
   };
 
   await dynamoDB.put(params);
+  console.log("made it to create");
+  console.log(params);
 
   return params.Item;
 });

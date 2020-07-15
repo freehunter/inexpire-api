@@ -12,9 +12,10 @@ export const main = handler(async (event, context) => {
       itemId: event.pathParameters.id
     }
   };
-
+  console.log("made it to inexpire/get");
   const result = await dynamoDb.get(params);
   if ( ! result.Item) {
+    console.log("item not found");
     throw new Error("Item not found.");
   }
 
