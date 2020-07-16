@@ -1,8 +1,8 @@
 Resources:
-  itemsTable:
+  ItemsTable:
     Type: AWS::DynamoDB::Table
     Properties:
-      TableName: ${self:custom.tableName}-inexpire
+      TableName: ${self:custom.tableName}
       AttributeDefinitions:
         - AttributeName: userId
           AttributeType: S
