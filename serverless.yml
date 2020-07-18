@@ -21,6 +21,11 @@ provider:
   runtime: nodejs12.x
   stage: dev
   region: us-east-2
+  
+  # Enable X-Ray tracing
+  tracing:
+    apiGateway: true
+    lambda: true
 
   # These environment variables are made available to our functions
   # under process.env.
@@ -39,6 +44,8 @@ provider:
         - dynamodb:PutItem
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
+        - xray:PutTraceSegments
+        - xray:PutTelemetryRecords
       # Restrict our IAM role permissions to
       # the specific table for the stage
       Resource:
