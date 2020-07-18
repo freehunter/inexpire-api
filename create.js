@@ -10,12 +10,13 @@ export const main = handler(async(event, context) => {
     Item: {
       userId: event.requestContext.identity.cognitoIdentityId,
       itemId: uuid.v1(),
-      content: data.content,
-      expires: data.expires,
+      content: data.content.content,
+      expires: data.content.content2,
       createdAt: Date.now()
     }
   };
 
+  console.log(data);
   await dynamoDB.put(params);
   console.log("made it to create");
   console.log(params);
