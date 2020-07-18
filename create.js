@@ -11,7 +11,7 @@ export const main = handler(async(event, context) => {
       userId: event.requestContext.identity.cognitoIdentityId,
       itemId: uuid.v1(),
       content: data.content.content,
-      expires: data.content.content2,
+      expires: data.content.expires,
       createdAt: Date.now()
     }
   };
