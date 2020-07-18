@@ -17,7 +17,7 @@ export const main = handler(async(event, context) => {
     UpdateExpression: "SET content = :content, expires = :expires",
     ExpressionAttributeValues: {
       ":content": data.content.content || null,
-      ":expires": data.content.expires || null
+      ":expires": data.content || null
     },
     // 'ReturnValues' specifies if and how to return the item's attributes,
     // where ALL_NEW returns all attributes of the item after the update; you
