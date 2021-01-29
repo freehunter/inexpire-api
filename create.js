@@ -12,6 +12,7 @@ export const main = handler(async(event, context) => {
       itemId: uuid.v1(),
       content: data.content.content,
       expires: data.content.expires,
+      quantity: data.content.quantity,
       createdAt: Date.now()
     }
   };
