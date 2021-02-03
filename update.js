@@ -3,6 +3,7 @@ import dynamoDb from "./libs/dynamodb-lib";
 
 export const main = handler(async(event, context) => {
   const data = JSON.parse(event.body);
+  console.log(event);
   const params = {
     TableName: process.env.tableName,
     // 'Key' defines the partition key and sort key of the item to be updated
@@ -14,10 +15,11 @@ export const main = handler(async(event, context) => {
     },
     // 'UpdateExpression' defines the attributes to be updated
     // 'ExpressionAttributeValues' defines the value in the update expression
-    UpdateExpression: "SET content = :content, expires = :expires",
+    UpdateExpression: "SET content = :content, expires = :expires, quantity = :quantity",
     ExpressionAttributeValues: {
       ":content": data.content.content || null,
-      ":expires": data.content.content2 || null
+      ":expires": data.content.expires || null,
+      ":quantity": data.content.quantity || null
     },
     // 'ReturnValues' specifies if and how to return the item's attributes,
     // where ALL_NEW returns all attributes of the item after the update; you
