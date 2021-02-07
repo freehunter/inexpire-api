@@ -13,6 +13,7 @@ export const main = handler(async(event, context) => {
       content: data.content.content,
       expires: data.content.expires,
       quantity: data.content.quantity,
+      lowstock: data.content.lowstock,
       createdAt: Date.now()
     }
   };
